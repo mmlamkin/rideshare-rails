@@ -1,2 +1,14 @@
-<h1>Passengers#show</h1>
-<p>Find me in app/views/passengers/show.html.erb</p>
+<h1><%= @passenger.name %></h1>
+
+<ul>
+  <%@passenger.trips.each do |trip|%>
+  <li>
+    <%=trip.id%>
+    <%=trip.date%>
+    <%=trip.driver.name%>
+    <%=(trip.cost / 100).round(2) %>
+    <%=trip.rating%>
+
+  </li>
+  <%end%>
+</ul>

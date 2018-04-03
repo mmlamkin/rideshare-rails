@@ -13,6 +13,8 @@ class PassengersController < ApplicationController
   end
 
   def show
+    id = params[:id]
+    @passenger = Passenger.find(id)
   end
 
   def update
