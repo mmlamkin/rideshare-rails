@@ -4,9 +4,17 @@ class PassengersController < ApplicationController
   end
 
   def new
+    @passenger = Passenger.new
   end
 
   def create
+    @passenger = Passenger.new(passenger_params)
+
+    if @passenger.save
+      redirect_to passenger_path((@passenger.id))
+    else
+      render :new
+    end
   end
 
   def edit
