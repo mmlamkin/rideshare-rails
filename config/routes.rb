@@ -1,46 +1,5 @@
 Rails.application.routes.draw do
 
-  get 'trip/index'
-
-  get 'trip/new'
-
-  get 'trip/create'
-
-  get 'trip/edit'
-
-  get 'trip/show'
-
-  get 'trip/update'
-
-  get 'trip/destroy'
-
-  get 'passenger/index'
-
-  get 'passenger/new'
-
-  get 'passenger/create'
-
-  get 'passenger/edit'
-
-  get 'passenger/show'
-
-  get 'passenger/update'
-
-  get 'passenger/destroy'
-
-  get 'drivers/index'
-
-  get 'drivers/new'
-
-  get 'drivers/create'
-
-  get 'drivers/edit'
-
-  get 'drivers/show'
-
-  get 'drivers/update'
-
-  get 'drivers/destroy'
 
   get '/drivers', to: 'drivers#index', as: 'drivers'
   get '/drivers/new', to: 'drivers#new', as: 'new-driver'
