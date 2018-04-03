@@ -1,38 +1,38 @@
 require 'test_helper'
 
-class PassengerControllerTest < ActionDispatch::IntegrationTest
+class TripsControllerTest < ActionDispatch::IntegrationTest
   test "should get index" do
-    get passenger_index_url
+    get trips_index_url
     assert_response :success
   end
 
   test "should get new" do
-    get passenger_new_url
+    get trips_new_url
     assert_response :success
   end
 
   test "should get create" do
-    get passenger_create_url
+    get trips_create_url
     assert_response :success
   end
 
   test "should get edit" do
-    get passenger_edit_url
+    get trips_edit_url
     assert_response :success
   end
 
   test "should get show" do
-    get passenger_show_url
+    get trips_show_url
     assert_response :success
   end
 
   test "should get update" do
-    get passenger_update_url
+    get trips_update_url
     assert_response :success
   end
 
   test "should get destroy" do
-    get passenger_destroy_url
+    get trips_destroy_url
     assert_response :success
   end
 
