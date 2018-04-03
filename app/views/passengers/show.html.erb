@@ -8,7 +8,7 @@
     <%=trip.driver.name%>
     <%=(trip.cost / 100).round(2) %>
     <%=trip.rating%>
-
+    <%= link_to "Edit Passenger", edit_passenger_path %>
   </li>
   <%end%>
 </ul>
