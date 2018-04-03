@@ -7,7 +7,6 @@ class CreateTrips < ActiveRecord::Migration[5.1]
       t.string :date
       t.integer :rating
       t.float :cost
-
       t.timestamps
     end
   end
