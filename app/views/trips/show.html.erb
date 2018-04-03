@@ -1,2 +1,10 @@
-<h1>Trips#show</h1>
-<p>Find me in app/views/trips/show.html.erb</p>
+<h1>Trips #<%= @trip.id %></h1>
+
+<p>
+  <%=@trip.id%>
+  <%=@trip.date%>
+  <%=@trip.driver.name%>
+  <%=@trip.passenger.name%>
+  <%=(@trip.cost / 100).round(2) %>
+  <%=@trip.rating%>
+</p>
