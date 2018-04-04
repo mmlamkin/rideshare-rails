@@ -1,4 +1,8 @@
 <h1><%= @passenger.name %></h1>
+<span><%=@passenger.phone_number%></span>
+<span>$<%= @passenger.overall_spending(@passenger.id) %> </span>
+
+<a><%= link_to "Request Ride", trips_path(@passenger.id), method: :post %></a>
 
 <ul>
   <%@passenger.trips.each do |trip|%>

@@ -3,9 +3,18 @@ class TripsController < ApplicationController
   end
 
   def new
+
   end
 
   def create
+
+    @trip = create_trip
+
+    if @trip.save
+      redirect_to passenger_path(@trip.passenger.id)
+    else
+      render :new
+    end
   end
 
   def edit
