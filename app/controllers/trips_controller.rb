@@ -8,7 +8,8 @@ class TripsController < ApplicationController
 
   def create
 
-    @trip = create_trip
+    @trip = create_trip(id: passenger_id)
+
 
     if @trip.save
       redirect_to passenger_path(@trip.passenger.id)
