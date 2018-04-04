@@ -1,4 +1,7 @@
 <h1><%= @driver.name %></h1>
+<span><%= @driver.overall_earnings(@driver.id) %> </span>
+<span><%= @driver.average_rating(@driver.id) %> </span>
+
 
 <ul>
   <%@driver.trips.each do |trip|%>
