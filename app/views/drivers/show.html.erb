@@ -16,3 +16,10 @@
   <%end%>
 
 </ul>
+
+<span>
+  <%= link_to "Edit Driver", edit_driver_path %>
+</span>
+<span>
+  <%= link_to "Delete Driver", driver_path(@driver.id), method: :delete %>
+</span>

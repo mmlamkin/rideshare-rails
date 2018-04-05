@@ -12,9 +12,12 @@
     <%=link_to "#{trip.driver.name}", driver_path(trip.driver.id)%>
     <%=trip.cost.nil? ? 0.00 : (trip.cost / 100).round(2) %>
     <%=trip.rating%>
-    <%= link_to "Edit Passenger", edit_passenger_path %>
+    <%end%>
   </li>
-  <%end%>
 </ul>
-
-passenger_trips_path
+  <span>
+    <%= link_to "Edit Passenger", edit_passenger_path %>
+  </span>
+  <span>
+    <%= link_to "Delete Passenger", passenger_path(@passenger.id), method: :delete %>
+  </span>
