@@ -17,6 +17,10 @@ class Driver < ApplicationRecord
     @driver.trips.each do |trip|
       ratings_total += trip.rating.to_f
     end
-    ratings_average = (ratings_total / @driver.trips.count).round(1)
+    if @driver.trips.count == 0
+      ratings_average = "No ratings yet"
+    else
+      ratings_average = (ratings_total / @driver.trips.count).round(1)
+    end
   end
 end

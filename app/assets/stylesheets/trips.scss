@@ -1,3 +1,29 @@
 // Place all the styles related to the Trips controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+ .homepage {
+  border: double 2em #872219;
+  margin-top: 10%;
+}
+
+.tag {
+    text-align: center;
+}
+
+.tag span {
+  font-size: 1.8em;
+}
+
+.tag ul {
+  display: flex;
+  justify-content: center;
+  padding-left: 0;
+  margin: 1.2em;
+}
+
+.tag ul li a {
+  margin: 1em;
+  font-weight: bold;
+  color: black;
+}
