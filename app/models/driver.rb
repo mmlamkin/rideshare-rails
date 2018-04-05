@@ -13,7 +13,7 @@ class Driver < ApplicationRecord
     if revenue_total <= 1.65
       return 0
     else
-      earnings = (((revenue_total - 1.65) * 0.8) / 100 ).round(2)
+      earnings = "$ #{(((revenue_total - 1.65) * 0.8) / 100 ).round(2)}"
     end
   end
 
