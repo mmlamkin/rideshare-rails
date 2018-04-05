@@ -21,6 +21,7 @@ class Driver < ApplicationRecord
       ratings_average = "No ratings yet"
     else
       ratings_average = (ratings_total / @driver.trips.count).round(1)
+      return "#{ratings_average} stars"
     end
   end
 end

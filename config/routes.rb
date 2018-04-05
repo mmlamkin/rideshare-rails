@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   resources :passengers
 
   resources :trips
-  #don't need index for trips!!
+  #don't need new for trips!!
 
 
 end

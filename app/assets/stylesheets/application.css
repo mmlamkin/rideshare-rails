@@ -13,7 +13,9 @@
  *= require_tree .
  *= require_self
  */
-
+body {
+  background-color: #f7b6a8;
+}
  header {
    background-color: #872219;
    font-weight: bold;
