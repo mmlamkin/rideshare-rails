@@ -10,7 +10,7 @@ class TripsController < ApplicationController
 
     @trip = create_trip(id: passenger_id)
 
-
+    
     if @trip.save
       redirect_to passenger_path(@trip.passenger.id)
     else
