@@ -1,11 +1,13 @@
 <h1>Our Awesome Drivers!</h1>
 
-<ul>
+<ul class='driver-view'>
   <% @drivers.each do |driver| %>
     <li>
+      <img src="http://placekitten.com/g/100/100" alt="photo"/>
       <span>
       <%= link_to driver.name, driver_path(driver[:id]) %>
       </span>
+      <span><%= driver.average_rating(driver.id) %> </span>
     </li>
   <% end%>
 </ul>

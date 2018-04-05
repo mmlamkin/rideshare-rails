@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   end
 
   resources :trips
-  #don't need index for trips!!
+  #don't need new for trips!!
 
 
 end
