@@ -2,7 +2,7 @@
 <span><%=@passenger.phone_number%></span>
 <span>$<%= @passenger.overall_spending(@passenger.id) %> </span>
 
-<a><%= link_to "Request Ride", trips_path(@passenger.id), method: :post %></a>
+<a><%= link_to "Request Ride", passenger_trips_path(@passenger.id), method: :post %></a>
 
 <ul>
   <%@passenger.trips.each do |trip|%>
@@ -10,9 +10,11 @@
     <%=trip.id%>
     <%=trip.date%>
     <%=link_to "#{trip.driver.name}", driver_path(trip.driver.id)%>
-    <%=(trip.cost / 100).round(2) %>
+    <%=trip.cost.nil? ? 0.00 : (trip.cost / 100).round(2) %>
     <%=trip.rating%>
     <%= link_to "Edit Passenger", edit_passenger_path %>
   </li>
   <%end%>
 </ul>
+
+passenger_trips_path
