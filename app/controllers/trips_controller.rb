@@ -7,12 +7,12 @@ class TripsController < ApplicationController
   end
 
   def create
-
-    @trip = create_trip(id: passenger_id)
-
-    
+    @trip = Trip.new
+    @trip.passenger_id = params[:passenger_id]
+    @trip.driver_id = Driver.all.sample.id
+    @trip.date = Time.now
     if @trip.save
-      redirect_to passenger_path(@trip.passenger.id)
+      redirect_to passenger_path(@trip.passenger_id)
     else
       render :new
     end
@@ -35,6 +35,6 @@ class TripsController < ApplicationController
   private
 
   def trip_params
-    return params.require(:trip).permit(:driver_id, :passenger_id, :date, :rating, :cost)
+    return params.require(:trip).permit(:passenger_id, :driver_id, :date, :rating, :cost)
   end
 end

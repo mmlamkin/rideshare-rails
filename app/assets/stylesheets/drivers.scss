@@ -1,11 +1,53 @@
 // Place all the styles related to the Drivers controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
 .driver-view {
   padding: 0;
+}
+
+.columns .name {
+  margin-left: 35%;
+  margin-right: 2em;
+
+}
+
+.columns a {
+  font-size: 1.25em;
 }
 
 .driver-view li {
   display: flex;
   justify-content: space-around;
+}
+
+li span {
+  margin-top: 2em;
+}
+
+.d-p-names a {
+  color: black;
+  margin-top: 5%;
+}
+
+.driver-names a:hover {
+  color: white;
+}
+
+.d-p-header {
+  display: grid;
+  grid-template: 1fr 1fr / 1fr 1fr;
+  width: 50%;
+  margin: auto;
+}
+
+.d-p-header img {
+  grid-row-start: 1;
+  grid-row-end: 3;
+}
+
+.d-p-header span {
+  display: flex;
+  justify-content: left;
+  align-items: center;
 }

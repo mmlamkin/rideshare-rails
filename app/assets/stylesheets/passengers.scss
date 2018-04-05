@@ -1,3 +1,58 @@
 // Place all the styles related to the Passengers controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.passenger-view {
+  display: grid;
+  grid-template: auto / 1fr 1fr 1fr;
+}
+
+.passenger-view li {
+  display: flex;
+  align-items: center;
+}
+
+section {
+  text-align: center;
+}
+
+.passenger-name a {
+  color: black;
+  padding: 5px;
+}
+
+.passenger-name a:hover {
+  color: white;
+}
+
+.d-p-info li:first-child {
+  width: 100%;
+  padding-left: 0;
+}
+
+.d-p-info li {
+  display: flex;
+  justify-content: space-around;
+}
+
+.d-p-info li a {
+  color: black;
+}
+
+.d-p-info li a:nth-child(3):hover {
+  color: white;
+}
+
+#edit-delete {
+  text-align: left
+}
+
+#edit-delete span a {
+
+  text-decoration: none;
+  color: black;
+  padding: 1em;
+}
+
+#edit-delete span a:hover {
+  color: white;
+}

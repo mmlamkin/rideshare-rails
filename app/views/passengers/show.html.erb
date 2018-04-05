@@ -1,18 +1,31 @@
 <h1><%= @passenger.name %></h1>
-<span><%=@passenger.phone_number%></span>
-<span>$<%= @passenger.overall_spending(@passenger.id) %> </span>
 
-<a><%= link_to "Request Ride", trips_path(@passenger.id), method: :post %></a>
+<section class='d-p-header'>
+<img src="http://placecage.com/g/200/200" alt="photo"/>
+<span>Phone Number: <%=@passenger.phone_number%></span>
+<span>Total spending: $<%= @passenger.overall_spending(@passenger.id) %> </span>
+</section>
 
-<ul>
+<%= link_to "Request Ride", passenger_trips_path(@passenger.id), method: :post %>
+
+<ul class='d-p-info'>
+  <li><a>Trip ID</a><a>Trip Date</a><a>Driver</a><a>Cost</a><a>Rating</a>
+  </li>
   <%@passenger.trips.each do |trip|%>
   <li>
-    <%=trip.id%>
-    <%=trip.date%>
+    <a><%=trip.id%></a>
+    <a><%=trip.date%></a>
     <%=link_to "#{trip.driver.name}", driver_path(trip.driver.id)%>
-    <%=(trip.cost / 100).round(2) %>
-    <%=trip.rating%>
-    <%= link_to "Edit Passenger", edit_passenger_path %>
+    <a><%=trip.cost.nil? ? 0.00 : (trip.cost / 100).round(2) %></a>
+    <a><%=trip.rating%></a>
+    <%end%>
   </li>
-  <%end%>
 </ul>
+<section id='edit-delete'>
+  <span>
+    <%= link_to "Edit Passenger", edit_passenger_path %>
+  </span>
+  <span>
+    <%= link_to "Delete Passenger", passenger_path(@passenger.id), method: :delete %>
+  </span>
+</section>

@@ -6,16 +6,24 @@ class Driver < ApplicationRecord
   def overall_earnings(id)
     revenue_total = 0
     Driver.find_by(id:id).trips.each do |trip|
-      revenue_total += trip.cost
+      unless trip.cost.nil?
+        revenue_total += trip.cost
+      end
     end
-    earnings = (((revenue_total - 1.65) * 0.8) / 100 ).round(2)
+    if revenue_total <= 1.65
+      return 0
+    else
+      earnings = (((revenue_total - 1.65) * 0.8) / 100 ).round(2)
+    end
   end
 
   def average_rating(id)
     ratings_total = 0
     @driver = Driver.find_by(id:id)
     @driver.trips.each do |trip|
-      ratings_total += trip.rating.to_f
+      unless trip.rating.nil?
+        ratings_total += trip.rating.to_f
+      end
     end
     if @driver.trips.count == 0
       ratings_average = "No ratings yet"

@@ -1,18 +1,35 @@
 <h1><%= @driver.name %></h1>
-<span>$<%= @driver.overall_earnings(@driver.id) %> </span>
-<span><%= @driver.average_rating(@driver.id) %> stars </span>
+<section class='d-p-header'>
+<img src="http://placecage.com/g/200/200" alt="photo"/>
 
+<span>Total Earnings: <%= @driver.overall_earnings(@driver.id) %> </span>
+<span>Average Rating: <%= @driver.average_rating(@driver.id) %></span>
+</section>
 
-<ul>
+<ul class='d-p-info'>
+  <li><a>Trip ID</a><a>Trip Date</a><a>Passenger</a><a>Cost</a><a>Rating</a>
+  </li>
   <%@driver.trips.each do |trip|%>
   <li>
-    <%=trip.id%>
-    <%=trip.date%>
+    <a><%=trip.id%></a>
+    <a><%=trip.date%></a>
     <%=link_to "#{trip.passenger.name}", passenger_path(trip.passenger.id)%>
-    <%=(trip.cost / 100).round(2) %>
-    <%=trip.rating%>
-    <%= link_to "Edit Driver", edit_driver_path %>
+    <a>$<%if !trip.cost.nil? %>
+      <%=(trip.cost / 100).round(2)%>
+      <% else %>
+      <%= 0 %>
+    <% end %>
+    </a>
+    <a><%=trip.rating%></a>
   </li>
   <%end%>
-
 </ul>
+
+<section id='edit-delete'>
+<span>
+  <%= link_to "Edit Driver", edit_driver_path %>
+</span>
+<span>
+  <%= link_to "Delete Driver", driver_path(@driver.id), method: :delete %>
+</span>
+</section>
