@@ -1,40 +1,32 @@
 <h1>Rate your Trip!</h1>
 
-<%= form_for @trip do |f| %>
+<%= @trip.id %>
 <% if !Driver.find_by(id: @trip.driver_id).nil? %>
     <%= link_to "#{@trip.driver.name}", driver_path(@trip.driver.id) %>
   <% else %>
     <%= "(Driver Deleted)" %>
-  <% end %></td>
+<% end %>
 <% if !Passenger.find_by(id: @trip.passenger_id).nil? %>
     <%= link_to "#{@trip.passenger.name}", passenger_path(@trip.passenger.id) %>
-  <% else %>
+<% else %>
     <%= "(Passenger Deleted)" %>
-  <% end %></td>
-  <td>$<%if !@trip.cost.nil? %>
+<% end %></td>
+  <a>$<%if !@trip.cost.nil? %>
     <%=(@trip.cost / 100).round(2)%>
   <% else %>
     <%= 0 %>
-  <% end %></td>
-  <%= f.label :rating %>
-  <%= f. %>
-
-  <%= f.submit %>
+  <% end %></a>
+<div>
+<%= form_for @trip do |f| %>
+  <%= f.label(:rating, "1 Star-Terrrible")%>
+  <%= f.radio_button(:rating, 1) %>
+  <%= f.label(:rating, "2 Stars-Meh") %>
+  <%= f.radio_button(:rating, 2) %>
+  <%= f.label(:rating, "3 Stars-A-Okay") %>
+  <%= f.radio_button(:rating, 3) %>
+  <%= f.label(:rating, "4 Stars-Pretty Groovy") %>
+  <%= f.radio_button(:rating, 4) %>
+  <%= f.label(:rating, "5 Stars-RAD") %>
+  <%= f.radio_button(:rating, 5) %>
 <% end %>
-
-
-<% form_for(@trip) do |f| %>
-
-  <%= radio_button_tag(:rating, 1) %>
-  <%= label_tag("One Star - Awful") %>
-  <%= radio_button_tag(:rating, 2) %>
-  <%= label_tag("Two Stars - Not so good") %>
-  <%= radio_button_tag(:rating, 3) %>
-  <%= label_tag("Three Stars - Okay") %>
-  <%= radio_button_tag(:rating, 4) %>
-  <%= label_tag("Four Stars - Good") %>
-  <%= radio_button_tag(:rating, 5) %>
-  <%= label_tag("Five Stars - Amazing") %>
-
-
-<% end %>
+</div>
