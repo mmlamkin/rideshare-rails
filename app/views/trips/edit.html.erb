@@ -21,3 +21,20 @@
 
   <%= f.submit %>
 <% end %>
+
+
+<% form_for(@trip) do |f| %>
+
+  <%= radio_button_tag(:rating, 1) %>
+  <%= label_tag("One Star - Awful") %>
+  <%= radio_button_tag(:rating, 2) %>
+  <%= label_tag("Two Stars - Not so good") %>
+  <%= radio_button_tag(:rating, 3) %>
+  <%= label_tag("Three Stars - Okay") %>
+  <%= radio_button_tag(:rating, 4) %>
+  <%= label_tag("Four Stars - Good") %>
+  <%= radio_button_tag(:rating, 5) %>
+  <%= label_tag("Five Stars - Amazing") %>
+
+
+<% end %>
