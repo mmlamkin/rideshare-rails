@@ -31,7 +31,13 @@ class TripsController < ApplicationController
   def update
     id = params[:id]
     @trip = Trip.find_by(id: id)
-    
+    @trip.update(trip_params)
+    if @trip.save
+      redirect_to passenger_path(@trip.passenger_id)
+    else
+      render :show
+    end
+
   end
 
   def destroy

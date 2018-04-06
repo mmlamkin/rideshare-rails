@@ -1,22 +1,6 @@
 <h1>Rate your Trip!</h1>
 
-<%= @trip.id %>
-<% if !Driver.find_by(id: @trip.driver_id).nil? %>
-    <%= link_to "#{@trip.driver.name}", driver_path(@trip.driver.id) %>
-  <% else %>
-    <%= "(Driver Deleted)" %>
-<% end %>
-<% if !Passenger.find_by(id: @trip.passenger_id).nil? %>
-    <%= link_to "#{@trip.passenger.name}", passenger_path(@trip.passenger.id) %>
-<% else %>
-    <%= "(Passenger Deleted)" %>
-<% end %></td>
-  <a>$<%if !@trip.cost.nil? %>
-    <%=(@trip.cost / 100).round(2)%>
-  <% else %>
-    <%= 0 %>
-  <% end %></a>
-<div>
+<div id='form'>
 <%= form_for @trip do |f| %>
   <%= f.label(:rating, "1 Star-Terrrible")%>
   <%= f.radio_button(:rating, 1) %>
@@ -28,5 +12,35 @@
   <%= f.radio_button(:rating, 4) %>
   <%= f.label(:rating, "5 Stars-RAD") %>
   <%= f.radio_button(:rating, 5) %>
+  <%= f.submit %>
 <% end %>
 </div>
+
+<table style="width:100%">
+  <tr>
+    <th>Trip ID</th>
+    <th>Trip Date</th>
+    <th>Driver</th>
+    <th>Passenger</th>
+    <th>Cost</th>
+  </tr>
+  <tr>
+    <td><%= @trip.id %></td>
+    <td><%= @trip.date %></td>
+    <td><% if !Driver.find_by(id: @trip.driver_id).nil? %>
+    <%= link_to "#{@trip.driver.name}", driver_path(@trip.driver.id) %>
+  <% else %>
+    <%= "(Driver Deleted)" %>
+      <% end %></td>
+    <td><% if !Passenger.find_by(id: @trip.passenger_id).nil? %>
+        <%= link_to "#{@trip.passenger.name}", passenger_path(@trip.passenger.id) %>
+      <% else %>
+        <%= "(Passenger Deleted)" %>
+      <% end %></td>
+    <td>$<%if !@trip.cost.nil? %>
+        <%=(@trip.cost / 100).round(2)%>
+      <% else %>
+        <%= 0 %>
+      <% end %></td>
+  </tr>
+</table>
