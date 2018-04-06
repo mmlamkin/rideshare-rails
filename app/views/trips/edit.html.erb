@@ -1,2 +1,23 @@
-<h1>Trips#edit</h1>
-<p>Find me in app/views/trips/edit.html.erb</p>
+<h1>Rate your Trip!</h1>
+
+<%= form_for @trip do |f| %>
+<% if !Driver.find_by(id: @trip.driver_id).nil? %>
+    <%= link_to "#{@trip.driver.name}", driver_path(@trip.driver.id) %>
+  <% else %>
+    <%= "(Driver Deleted)" %>
+  <% end %></td>
+<% if !Passenger.find_by(id: @trip.passenger_id).nil? %>
+    <%= link_to "#{@trip.passenger.name}", passenger_path(@trip.passenger.id) %>
+  <% else %>
+    <%= "(Passenger Deleted)" %>
+  <% end %></td>
+  <td>$<%if !@trip.cost.nil? %>
+    <%=(@trip.cost / 100).round(2)%>
+  <% else %>
+    <%= 0 %>
+  <% end %></td>
+  <%= f.label :rating %>
+  <%= f. %>
+
+  <%= f.submit %>
+<% end %>

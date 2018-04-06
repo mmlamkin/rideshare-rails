@@ -27,6 +27,10 @@
       <% else %>
         <%= 0 %>
       <% end %></td>
-      <td><%=@trip.rating%></td>
+      <td><%if @trip.rating.nil?%>
+            <%= link_to "Rate your Trip", edit_trip_path(@trip.id)%>
+          <%else%>
+            <%=@trip.rating%>
+          <%end%></td>
     </tr>
 </table>
