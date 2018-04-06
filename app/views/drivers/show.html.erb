@@ -9,11 +9,16 @@
 <ul class='d-p-info'>
   <li><a>Trip ID</a><a>Trip Date</a><a>Passenger</a><a>Cost</a><a>Rating</a>
   </li>
-  <% @driver.trips.nil? ? "No trips yet." : @driver.trips.each do |trip|%>
+  <% @driver.trips.each do |trip|%>
   <li>
     <a><%=trip.id%></a>
     <a><%=trip.date%></a>
-    <%=link_to "#{trip.passenger.name}", passenger_path(trip.passenger.id)%>
+    <% if !Passenger.find_by(id: trip.passenger_id).nil? %>
+      <%= link_to "#{trip.passenger.name}", passenger_path(trip.passenger.id) %>
+    <% else %>
+       <%= "(Passenger Deleted)" %>
+    <% end %>
+    <a>
     <a>$<%if !trip.cost.nil? %>
       <%=(trip.cost / 100).round(2)%>
       <% else %>
