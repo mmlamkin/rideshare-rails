@@ -15,7 +15,11 @@
   <li>
     <a><%=trip.id%></a>
     <a><%=trip.date%></a>
-    <%=link_to "#{trip.driver.name}", driver_path(trip.driver.id)%>
+    <% if !Driver.find_by(id: trip.driver_id).nil? %>
+      <%= link_to "#{trip.driver.name}", driver_path(trip.driver.id) %>
+    <% else %>
+       <%= "(Driver Deleted)" %>
+    <% end %>
     <a><%=trip.cost.nil? ? 0.00 : (trip.cost / 100).round(2) %></a>
     <a><%=trip.rating%></a>
     <%end%>
