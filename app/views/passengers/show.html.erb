@@ -13,14 +13,14 @@
   </li>
   <%@passenger.trips.each do |trip|%>
   <li>
-    <a><%=trip.id%></a>
+    <a><%= link_to "#{trip.id}", trip_path(trip.id)%></a>
     <a><%=trip.date%></a>
     <% if !Driver.find_by(id: trip.driver_id).nil? %>
       <%= link_to "#{trip.driver.name}", driver_path(trip.driver.id) %>
     <% else %>
        <%= "(Driver Deleted)" %>
     <% end %>
-    <a><%=trip.cost.nil? ? 0.00 : (trip.cost / 100).round(2) %></a>
+    <a>$<%=trip.cost.nil? ? 0.00 : (trip.cost / 100).round(2) %></a>
     <a><%=trip.rating%></a>
     <%end%>
   </li>

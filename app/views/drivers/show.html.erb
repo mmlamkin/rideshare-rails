@@ -11,7 +11,7 @@
   </li>
   <% @driver.trips.each do |trip|%>
   <li>
-    <a><%=trip.id%></a>
+    <a><%= link_to "#{trip.id}", trip_path(trip.id)%></a>
     <a><%=trip.date%></a>
     <% if !Passenger.find_by(id: trip.passenger_id).nil? %>
       <%= link_to "#{trip.passenger.name}", passenger_path(trip.passenger.id) %>

@@ -15,6 +15,15 @@ section {
   text-align: center;
 }
 
+a {
+  text-decoration: none;
+  color: black
+}
+
+a:hover {
+  color: white
+}
+
 .passenger-name a {
   color: black;
   padding: 5px;
@@ -24,9 +33,13 @@ section {
   color: white;
 }
 
-.d-p-info li:first-child {
-  width: 100%;
+.d-p-info {
   padding-left: 0;
+}
+
+.d-p-info li:first-child {
+  margin-left: 12%;
+
 }
 
 .d-p-info li {
@@ -38,9 +51,14 @@ section {
   color: black;
 }
 
-.d-p-info li a:nth-child(3):hover {
+.d-p-info li a:nth-child(4):hover {
   color: white;
 }
+
+.d-p-info li a:nth-child(2):hover {
+  color: white;
+}
+
 
 #edit-delete {
   text-align: left

@@ -1,10 +1,32 @@
-<h1>Trips #<%= @trip.id %></h1>
+<h1>Trip #<%= @trip.id %></h1>
 
-<p>
-  <%=@trip.id%>
-  <%=@trip.date%>
-  <%=@trip.driver.name%>
-  <%=@trip.passenger.name%>
-  <%=(@trip.cost / 100).round(2) %>
-  <%=@trip.rating%>
-</p>
+<table style="width:100%">
+  <tr>
+    <th>Trip ID</th>
+    <th>Trip Date</th>
+    <th>Driver</th>
+    <th>Passenger</th>
+    <th>Cost</th>
+    <th>Rating</th>
+  </tr>
+  <tr>
+    <td><%=@trip.id%></td>
+    <td><%=@trip.date%></td>
+    <td><% if !Driver.find_by(id: @trip.driver_id).nil? %>
+        <%= link_to "#{@trip.driver.name}", driver_path(@trip.driver.id) %>
+      <% else %>
+        <%= "(Driver Deleted)" %>
+      <% end %></td>
+    <td><% if !Passenger.find_by(id: @trip.passenger_id).nil? %>
+        <%= link_to "#{@trip.passenger.name}", passenger_path(@trip.passenger.id) %>
+      <% else %>
+        <%= "(Passenger Deleted)" %>
+      <% end %></td>
+      <td>$<%if !@trip.cost.nil? %>
+        <%=(@trip.cost / 100).round(2)%>
+      <% else %>
+        <%= 0 %>
+      <% end %></td>
+      <td><%=@trip.rating%></td>
+    </tr>
+</table>
